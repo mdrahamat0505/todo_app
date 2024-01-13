@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:todo_appp/const/colors.dart';
 import 'package:todo_appp/screen/add_note_screen.dart';
 import 'package:todo_appp/widgets/stream_note.dart';
@@ -23,11 +24,11 @@ class _HomeScreenState extends State<HomeScreen> {
         child: FloatingActionButton(
           onPressed: () {
             Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => Add_creen(),
+              builder: (context) => const Add_creen(),
             ));
           },
           backgroundColor: customGreen,
-          child: Icon(Icons.add, size: 30),
+          child: Icon(Icons.add, size: 30.r),
         ),
       ),
       body: SafeArea(
@@ -45,18 +46,21 @@ class _HomeScreenState extends State<HomeScreen> {
             }
             return true;
           },
-          child: Column(
-            children: [
-              StreamNote(false),
-              Text(
-                'isDone',
-                style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.grey.shade500,
-                    fontWeight: FontWeight.bold),
-              ),
-              StreamNote(true),
-            ],
+          child: SingleChildScrollView(
+            physics: const AlwaysScrollableScrollPhysics(),
+            child: Column(
+              children: [
+                StreamNote(false),
+                Text(
+                  'isDone',
+                  style: TextStyle(
+                      fontSize: 16.sp,
+                      color: Colors.grey.shade500,
+                      fontWeight: FontWeight.bold),
+                ),
+                StreamNote(true),
+              ],
+            ),
           ),
         ),
       ),

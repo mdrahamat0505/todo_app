@@ -35,6 +35,10 @@ dependencies:
   cloud_firestore: ^4.14.0
   msh_checkbox: ^2.0.1
   uuid: ^4.3.2
+  device_preview: ^1.1.0
+  flutter_screenutil: ^5.9.0
+  shimmer: ^3.0.0
+  hive: ^2.2.3
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -51,6 +55,17 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
+  very_good_analysis: ^5.1.0
+
+
+  flutter_launcher_icons:
+
+
+flutter_icons:
+  image_path: "images/list.png"
+  android: true
+  ios: true
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -80,7 +95,7 @@ flutter:
   # in this "flutter" section. Each entry in this list should have a
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
-  # example:
+    # example:      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
   # fonts:
   #   - family: Schyler
   #     fonts:

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:todo_appp/const/colors.dart';
 import 'package:todo_appp/data/firestor.dart';
 
@@ -13,8 +14,8 @@ class _Add_creenState extends State<Add_creen> {
   final title = TextEditingController();
   final subtitle = TextEditingController();
 
-final  FocusNode _focusNode1 = FocusNode();
- final FocusNode _focusNode2 = FocusNode();
+  final FocusNode _focusNode1 = FocusNode();
+  final FocusNode _focusNode2 = FocusNode();
   int indexx = 0;
   @override
   Widget build(BuildContext context) {
@@ -25,11 +26,11 @@ final  FocusNode _focusNode1 = FocusNode();
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             title_widgets(),
-            const SizedBox(height: 20),
+            SizedBox(height: 20.h),
             subtite_wedgite(),
-            const SizedBox(height: 20),
+            SizedBox(height: 20.h),
             imagess(),
-            const SizedBox(height: 20),
+            SizedBox(height: 20.h),
             button()
           ],
         ),
@@ -44,7 +45,7 @@ final  FocusNode _focusNode1 = FocusNode();
         ElevatedButton(
           style: ElevatedButton.styleFrom(
             backgroundColor: customGreen,
-            minimumSize: const Size(170, 48),
+            minimumSize: Size(170.r, 48.r),
           ),
           onPressed: () {
             FirestoreDatasource().AddNote(subtitle.text, title.text, indexx);
@@ -55,7 +56,7 @@ final  FocusNode _focusNode1 = FocusNode();
         ElevatedButton(
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.red,
-            minimumSize: const Size(170, 48),
+            minimumSize: Size(170.r, 48.r),
           ),
           onPressed: () {
             Navigator.pop(context);
@@ -68,29 +69,29 @@ final  FocusNode _focusNode1 = FocusNode();
 
   Container imagess() {
     return Container(
-      height: 180,
+      height: 180.h,
       child: ListView.builder(
         itemCount: 4,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
           return GestureDetector(
             onTap: () {
-            //  setState(() {
-                indexx = index;
-             // });
+              //  setState(() {
+              indexx = index;
+              // });
             },
             child: Padding(
               padding: EdgeInsets.only(left: index == 0 ? 7 : 0),
               child: Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(10.r),
                   border: Border.all(
-                    width: 2,
+                    width: 2.w,
                     color: indexx == index ? customGreen : Colors.grey,
                   ),
                 ),
-                width: 140,
-                margin: const EdgeInsets.all(8),
+                width: 140.w,
+                margin: EdgeInsets.all(8.r),
                 child: Column(
                   children: [
                     Image.asset('images/${index}.png'),
@@ -106,32 +107,32 @@ final  FocusNode _focusNode1 = FocusNode();
 
   Widget title_widgets() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
+      padding: EdgeInsets.symmetric(horizontal: 15.r),
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(15.r),
         ),
         child: TextField(
           controller: title,
           focusNode: _focusNode1,
-          style: const TextStyle(fontSize: 18, color: Colors.black),
+          style: TextStyle(fontSize: 18.sp, color: Colors.black),
           decoration: InputDecoration(
               contentPadding:
-              const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+                  EdgeInsets.symmetric(horizontal: 15.r, vertical: 15.r),
               hintText: 'title',
               enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
-                borderSide: const BorderSide(
-                  color: Color(0xffc5c5c5),
-                  width: 2.0,
+                borderRadius: BorderRadius.circular(10.r),
+                borderSide: BorderSide(
+                  color: const Color(0xffc5c5c5),
+                  width: 2.0.w,
                 ),
               ),
               focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(10.r),
                 borderSide: BorderSide(
                   color: customGreen,
-                  width: 2.0,
+                  width: 2.0.w,
                 ),
               )),
         ),
@@ -141,32 +142,33 @@ final  FocusNode _focusNode1 = FocusNode();
 
   Padding subtite_wedgite() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
+      padding: EdgeInsets.symmetric(horizontal: 15.r),
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(15.r),
         ),
         child: TextField(
           maxLines: 3,
           controller: subtitle,
           focusNode: _focusNode2,
-          style: const TextStyle(fontSize: 18, color: Colors.black),
+          style: TextStyle(fontSize: 18.sp, color: Colors.black),
           decoration: InputDecoration(
-            contentPadding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+            contentPadding:
+                EdgeInsets.symmetric(horizontal: 15.r, vertical: 15.r),
             hintText: 'subtitle',
             enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-              borderSide: const BorderSide(
-                color: Color(0xffc5c5c5),
-                width: 2.0,
+              borderRadius: BorderRadius.circular(10.r),
+              borderSide: BorderSide(
+                color: const Color(0xffc5c5c5),
+                width: 2.0.w,
               ),
             ),
             focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(10.r),
               borderSide: BorderSide(
                 color: customGreen,
-                width: 2.0,
+                width: 2.0.w,
               ),
             ),
           ),

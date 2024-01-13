@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:todo_appp/const/colors.dart';
 import 'package:todo_appp/data/firestor.dart';
 import 'package:todo_appp/model/notes_model.dart';
 
 class EditScreen extends StatefulWidget {
-  Note _note;
-  EditScreen(this._note, {super.key});
+  final Note _note;
+  const EditScreen(this._note, {super.key});
 
   @override
   State<EditScreen> createState() => _EditScreenState();
@@ -15,8 +16,8 @@ class _EditScreenState extends State<EditScreen> {
   TextEditingController? title;
   TextEditingController? subtitle;
 
-  FocusNode _focusNode1 = FocusNode();
-  FocusNode _focusNode2 = FocusNode();
+  final FocusNode _focusNode1 = FocusNode();
+  final FocusNode _focusNode2 = FocusNode();
   int indexx = 0;
   @override
   void initState() {
@@ -26,6 +27,7 @@ class _EditScreenState extends State<EditScreen> {
     subtitle = TextEditingController(text: widget._note.subtitle);
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backgroundColors,
@@ -34,11 +36,11 @@ class _EditScreenState extends State<EditScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             title_widgets(),
-            SizedBox(height: 20),
+            SizedBox(height: 20.h),
             subtite_wedgite(),
-            SizedBox(height: 20),
+            SizedBox(height: 20.h),
             imagess(),
-            SizedBox(height: 20),
+            SizedBox(height: 20.h),
             button()
           ],
         ),
@@ -52,25 +54,25 @@ class _EditScreenState extends State<EditScreen> {
       children: [
         ElevatedButton(
           style: ElevatedButton.styleFrom(
-            primary: customGreen,
-            minimumSize: Size(170, 48),
+            backgroundColor: customGreen,
+            minimumSize: Size(170.r, 48.r),
           ),
           onPressed: () {
             FirestoreDatasource().Update_Note(
                 widget._note.id, indexx, title!.text, subtitle!.text);
             Navigator.pop(context);
           },
-          child: Text('add task'),
+          child: const Text('add task'),
         ),
         ElevatedButton(
           style: ElevatedButton.styleFrom(
-            primary: Colors.red,
-            minimumSize: Size(170, 48),
+            backgroundColor: Colors.red,
+            minimumSize: Size(170.r, 48.r),
           ),
           onPressed: () {
             Navigator.pop(context);
           },
-          child: Text('Cancel'),
+          child: const Text('Cancel'),
         ),
       ],
     );
@@ -78,7 +80,7 @@ class _EditScreenState extends State<EditScreen> {
 
   Container imagess() {
     return Container(
-      height: 180,
+      height: 180.h,
       child: ListView.builder(
         itemCount: 4,
         scrollDirection: Axis.horizontal,
@@ -95,12 +97,12 @@ class _EditScreenState extends State<EditScreen> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   border: Border.all(
-                    width: 2,
+                    width: 2.w,
                     color: indexx == index ? customGreen : Colors.grey,
                   ),
                 ),
-                width: 140,
-                margin: EdgeInsets.all(8),
+                width: 140.w,
+                margin: EdgeInsets.all(8.r),
                 child: Column(
                   children: [
                     Image.asset('images/${index}.png'),
@@ -116,32 +118,32 @@ class _EditScreenState extends State<EditScreen> {
 
   Widget title_widgets() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
+      padding:  EdgeInsets.symmetric(horizontal: 15.r),
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(15.r),
         ),
         child: TextField(
           controller: title,
           focusNode: _focusNode1,
-          style: TextStyle(fontSize: 18, color: Colors.black),
+          style: TextStyle(fontSize: 18.sp, color: Colors.black),
           decoration: InputDecoration(
               contentPadding:
-              EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+              EdgeInsets.symmetric(horizontal: 15.r, vertical: 15.r),
               hintText: 'title',
               enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
-                borderSide: BorderSide(
+                borderRadius: BorderRadius.circular(10.r),
+                borderSide: const BorderSide(
                   color: Color(0xffc5c5c5),
                   width: 2.0,
                 ),
               ),
               focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(10.r),
                 borderSide: BorderSide(
                   color: customGreen,
-                  width: 2.0,
+                  width: 2.0.w,
                 ),
               )),
         ),
@@ -151,32 +153,32 @@ class _EditScreenState extends State<EditScreen> {
 
   Padding subtite_wedgite() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
+      padding:  EdgeInsets.symmetric(horizontal: 15.r),
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(15.r),
         ),
         child: TextField(
           maxLines: 3,
           controller: subtitle,
           focusNode: _focusNode2,
-          style: TextStyle(fontSize: 18, color: Colors.black),
+          style: const TextStyle(fontSize: 18, color: Colors.black),
           decoration: InputDecoration(
-            contentPadding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+            contentPadding: EdgeInsets.symmetric(horizontal: 15.r, vertical: 15.r),
             hintText: 'subtitle',
             enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(10.r),
               borderSide: BorderSide(
-                color: Color(0xffc5c5c5),
-                width: 2.0,
+                color: const Color(0xffc5c5c5),
+                width: 2.0.w,
               ),
             ),
             focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(10.r),
               borderSide: BorderSide(
                 color: customGreen,
-                width: 2.0,
+                width: 2.0.w,
               ),
             ),
           ),

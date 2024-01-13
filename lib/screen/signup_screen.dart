@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:todo_appp/const/colors.dart';
 import 'package:todo_appp/data/auth_data.dart';
 
@@ -42,19 +43,20 @@ class _SignUpScreenState extends State<SignUpScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(height: 20),
+              SizedBox(height: 10.h),
               image(),
-              SizedBox(height: 50),
+              SizedBox(height: 20.h),
               textfield(email, _focusNode1, 'Email', Icons.email),
-              SizedBox(height: 10),
+              SizedBox(height: 10.h),
               textfield(password, _focusNode2, 'Password', Icons.password),
-              SizedBox(height: 10),
+              SizedBox(height: 10.h),
               textfield(PasswordConfirm, _focusNode3, 'PasswordConfirm',
                   Icons.password),
-              SizedBox(height: 8),
+              SizedBox(height: 8.h),
               account(),
-              SizedBox(height: 20),
+              SizedBox(height: 20.h),
               SignUP_bottom(),
+              SizedBox(height: 20.h),
             ],
           ),
         ),
@@ -64,22 +66,22 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   Widget account() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
+      padding:  EdgeInsets.symmetric(horizontal: 15.r),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           Text(
             "Don you have an account?",
-            style: TextStyle(color: Colors.grey[700], fontSize: 14),
+            style: TextStyle(color: Colors.grey[700], fontSize: 14.sp),
           ),
-          SizedBox(width: 5),
+          SizedBox(width: 5.w),
           GestureDetector(
             onTap: widget.show,
             child: Text(
               'Login',
               style: TextStyle(
                   color: Colors.blue,
-                  fontSize: 14,
+                  fontSize: 14.sp,
                   fontWeight: FontWeight.bold),
             ),
           )
@@ -90,7 +92,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   Widget SignUP_bottom() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
+      padding:  EdgeInsets.symmetric(horizontal: 15.r),
       child: GestureDetector(
         onTap: () {
           AuthenticationRemote()
@@ -99,16 +101,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
         child: Container(
           alignment: Alignment.center,
           width: double.infinity,
-          height: 50,
+          height: 50.h,
           decoration: BoxDecoration(
             color: customGreen,
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(10.r),
           ),
           child: Text(
             'Sign Up',
             style: TextStyle(
               color: Colors.white,
-              fontSize: 23,
+              fontSize: 23.sp,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -120,7 +122,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Widget textfield(TextEditingController _controller, FocusNode _focusNode,
       String typeName, IconData iconss) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
+      padding:  EdgeInsets.symmetric(horizontal: 15.r),
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white,
@@ -129,27 +131,27 @@ class _SignUpScreenState extends State<SignUpScreen> {
         child: TextField(
           controller: _controller,
           focusNode: _focusNode,
-          style: TextStyle(fontSize: 18, color: Colors.black),
+          style: TextStyle(fontSize: 18.sp, color: Colors.black),
           decoration: InputDecoration(
               prefixIcon: Icon(
                 iconss,
-                color: _focusNode.hasFocus ? customGreen : Color(0xffc5c5c5),
+                color: _focusNode.hasFocus ? customGreen : const Color(0xffc5c5c5),
               ),
               contentPadding:
-              EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+              EdgeInsets.symmetric(horizontal: 15.r, vertical: 15.r),
               hintText: typeName,
               enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(10.r),
                 borderSide: BorderSide(
-                  color: Color(0xffc5c5c5),
-                  width: 2.0,
+                  color: const Color(0xffc5c5c5),
+                  width: 2.0.w,
                 ),
               ),
               focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(10.r),
                 borderSide: BorderSide(
                   color: customGreen,
-                  width: 2.0,
+                  width: 2.0.w,
                 ),
               )),
         ),
@@ -159,13 +161,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   Widget image() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
+      padding:  EdgeInsets.symmetric(horizontal: 15.r),
       child: Container(
         width: double.infinity,
-        height: 300,
+        height: 200.h,
         decoration: BoxDecoration(
           color: backgroundColors,
-          image: DecorationImage(
+          image: const DecorationImage(
             image: AssetImage('images/7.png'),
             fit: BoxFit.fitWidth,
           ),
